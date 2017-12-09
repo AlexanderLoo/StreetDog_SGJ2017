@@ -10,7 +10,7 @@ public class Watercoll : MonoBehaviour {
 
 		if (other.gameObject.tag == "Player") 
 		{
-			Walkdog.instance.SetWater (true);
+			PlayerMovement.instance.SetWater (true);
 
 		}
 
@@ -19,7 +19,7 @@ public class Watercoll : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "Player")
 		{
-			Walkdog.instance.SetWater (false);
+			PlayerMovement.instance.SetWater (false);
 		}
 	}
 }

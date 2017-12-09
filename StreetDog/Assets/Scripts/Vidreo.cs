@@ -9,7 +9,7 @@ public class Vidreo : MonoBehaviour {
 	{
 		if (obj.gameObject.tag == "Player" && !unicaVez)
 		{
-			Walkdog.instance.ActualizarSpeed(porcentajeVelocidad);
+			PlayerMovement.instance.ActualizarSpeed(porcentajeVelocidad);
 			unicaVez = true;
 		}
 	}

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Borracho : MonoBehaviour {
 
-	private Walkdog acceso;
+	private PlayerMovement acceso;
 	public int contador;
 	public int cantLadridos;
 
@@ -32,7 +32,7 @@ public class Borracho : MonoBehaviour {
 	{
 		if (obj.gameObject.tag == "Player")
 		{
-			acceso = Walkdog.instance;
+			acceso = PlayerMovement.instance;
 			acceso.Miedo (true);
 			
 		}

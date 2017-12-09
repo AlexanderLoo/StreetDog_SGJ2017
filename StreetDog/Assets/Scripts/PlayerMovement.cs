@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Walkdog : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour {
 
 	private SpriteRenderer sr;
 	private Rigidbody2D rb2d;
-	public static Walkdog instance;
+	public static PlayerMovement instance;
 
 	public GameObject ladrido;//Esto solo será un sonido. no creara un GameObject
 	public Transform posBoca;
@@ -43,7 +43,7 @@ public class Walkdog : MonoBehaviour {
 			Ladrar();
 
 		if(Input.GetKeyDown(KeyCode.Space) && isGrounded){
-			
+
 			rb2d.AddForce (Vector2.up * jumpForce);
 			isGrounded = false;
 		}
@@ -70,7 +70,7 @@ public class Walkdog : MonoBehaviour {
 		if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey (KeyCode.A)) 
 		{
 			sr.flipX = true;
-			
+
 			//Si tocamos el charco reducimos la velocidad
 			if (onWater) 
 			{
@@ -97,7 +97,7 @@ public class Walkdog : MonoBehaviour {
 			}
 
 			posBoca.localPosition = new Vector3 (2.75f,0.9f,0f);
-			
+
 		}
 		rb2d.velocity = new Vector2 (movex,rb2d.velocity.y);
 
