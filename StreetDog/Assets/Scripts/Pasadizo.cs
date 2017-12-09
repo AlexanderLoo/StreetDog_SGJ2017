@@ -11,7 +11,7 @@ public class Pasadizo : MonoBehaviour {
 	{
 		if (obj.gameObject.tag == "Player")
 		{
-			if (Input.GetKeyDown (KeyCode.W) || Input.GetKeyDown (KeyCode.UpArrow)) {
+			if (Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.UpArrow)) {
 				playerAnim.SetTrigger ("ChangeLayer");
 				Invoke ("CambiarCapas", 1);
 			}
