@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class walkdog : MonoBehaviour {
+public class Walkdog : MonoBehaviour {
 
 	private SpriteRenderer sr;
 	private Rigidbody2D rb2d;
-	public static walkdog instance;
+	public static Walkdog instance;
 
 	public float speed;             
 	public Vector2 gameLimits;
@@ -65,5 +65,10 @@ public class walkdog : MonoBehaviour {
 	public void SetWater(bool agua)
 	{
 		onWater = agua;
+	}
+
+	public void ActualizarSpeed (float _valor)
+	{
+		speed *= _valor;
 	}
 }

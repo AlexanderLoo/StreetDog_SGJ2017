@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class watercoll : MonoBehaviour {
+public class Watercoll : MonoBehaviour {
 
 
 	void OnTriggerStay2D(Collider2D other)
@@ -10,7 +10,7 @@ public class watercoll : MonoBehaviour {
 
 		if (other.gameObject.tag == "Player") 
 		{
-			walkdog.instance.SetWater (true);
+			Walkdog.instance.SetWater (true);
 
 		}
 
@@ -19,7 +19,7 @@ public class watercoll : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "Player")
 		{
-			walkdog.instance.SetWater (false);
+			Walkdog.instance.SetWater (false);
 		}
 	}
 }
