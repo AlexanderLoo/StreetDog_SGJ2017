@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	private SpriteRenderer sr;
 	private Rigidbody2D rb2d;
+	private Animator anim;
 	public static PlayerMovement instance;
 
 	public GameObject ladrido;//Esto solo será un sonido. no creara un GameObject
@@ -25,6 +26,7 @@ public class PlayerMovement : MonoBehaviour {
 	{
 		sr = GetComponent<SpriteRenderer> ();
 		rb2d = GetComponent<Rigidbody2D> ();
+		anim = GetComponent<Animator> ();
 		instance = this;
 	}
 
@@ -49,6 +51,9 @@ public class PlayerMovement : MonoBehaviour {
 			rb2d.AddForce (Vector2.up * jumpForce);
 			isGrounded = false;
 		}
+		anim.SetFloat ("Walk", Mathf.Abs(rb2d.velocity.x));
+		anim.SetBool ("isGrounded", isGrounded);
+
 	}
 	//Detectamos si aterrizó en el piso
 	void OnCollisionEnter2D(Collision2D col){
