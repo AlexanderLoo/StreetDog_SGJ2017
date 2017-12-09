@@ -31,7 +31,7 @@ public class Paralax : MonoBehaviour {
 	}
 
 	public float VelocidadParalax (){
-		float _valor = 1 - (capa *0.25f);
+		float _valor = 1/capa;
 
 		return  _valor;
 	}
