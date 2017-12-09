@@ -13,7 +13,7 @@ public class Pasadizo : MonoBehaviour {
 	{
 		if ((Input.GetKeyDown (KeyCode.W) || Input.GetKeyDown (KeyCode.UpArrow))&& accionable) {
 				playerAnim.SetTrigger ("ChangeLayer");
-				Invoke ("CambiarCapas", 1);
+				Invoke ("CambiarCapas", 1.3f);
 				PlayerMovement.instance.pasadizo=true;
 			}
 	}
