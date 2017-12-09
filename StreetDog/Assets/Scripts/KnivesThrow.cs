@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectThrow : MonoBehaviour {
+public class KnivesThrow : MonoBehaviour {
 
 	private Rigidbody2D body;
 	//longitud al azar
