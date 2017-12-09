@@ -13,16 +13,18 @@ public class Walkdog : MonoBehaviour {
 
 	public Vector2 gameLimits;
 	public float speed;    
+	public float jumpForce;
 	public bool miedo = false;         
 	float movex;
 	bool onWater=false;
+	bool isGrounded;
+	bool jumping = false;
 
 	void Awake()
 	{
 		sr = GetComponent<SpriteRenderer> ();
 		rb2d = GetComponent<Rigidbody2D> ();
 		instance = this;
-
 	}
 
 	void Start()
@@ -39,6 +41,19 @@ public class Walkdog : MonoBehaviour {
 
 		if (Input.GetKeyDown (KeyCode.Space))
 			Ladrar();
+
+		if((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && isGrounded){
+			
+			rb2d.AddForce (Vector2.up * jumpForce);
+			isGrounded = false;
+		}
+	}
+	//Detectamos si aterrizó en el piso
+	void OnCollisionEnter2D(Collision2D col){
+
+		if (col.collider.CompareTag("Floor")) {
+			isGrounded = true;
+		}
 	}
 
 	void FixedUpdate()
