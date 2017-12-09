@@ -17,6 +17,7 @@ public class PlayerAnimatorController : MonoBehaviour {
 	void Update(){
 
 		anim.SetFloat ("Walk", Mathf.Abs(rb.velocity.x));
+
 	}
 
 }

@@ -26,7 +26,6 @@ public class ObjectThrow : MonoBehaviour {
 		body.velocity = new Vector2 (speedx * randomDir, speedy*3);
 	}
 
-	// Update is called once per frame
 	void Update () 
 	{
 		elapsed += Time.deltaTime;
