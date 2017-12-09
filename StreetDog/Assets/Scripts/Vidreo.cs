@@ -7,7 +7,7 @@ public class Vidreo : MonoBehaviour {
 	public bool unicaVez = false; //El charco te afecta una vez ?
 	void OnTriggerEnter2D(Collider2D obj)
 	{
-		if (obj.gameObject.tag == "Player" /*&& !unicaVez*/)
+		if (obj.gameObject.tag == "Player" && !unicaVez)
 		{
 			Walkdog.instance.ActualizarSpeed(porcentajeVelocidad);
 			unicaVez = true;
