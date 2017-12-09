@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Watercoll : MonoBehaviour {
-
+public class Charco : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D other)
 	{
