@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class kniveMove : MonoBehaviour {
+public class ObjectThrow : MonoBehaviour {
 
 	private Rigidbody2D body;
 	//longitud al azar

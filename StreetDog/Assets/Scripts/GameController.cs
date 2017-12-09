@@ -6,7 +6,7 @@ public class GameController : MonoBehaviour {
 
 	public static GameController instance;
 	//Los siguientes booleanos verifican si se encontró al enemigo determinado	
-	public bool chinoLoco;
+	public bool chinoLoco, peleaPareja;
 
 	void Awake(){
 
