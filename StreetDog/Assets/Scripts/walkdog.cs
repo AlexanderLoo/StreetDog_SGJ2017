@@ -39,10 +39,10 @@ public class Walkdog : MonoBehaviour {
 		newPos.x = Mathf.Clamp (transform.position.x, gameLimits.x, gameLimits.y);
 		transform.position = newPos;
 
-		if (Input.GetKeyDown (KeyCode.Space))
+		if (Input.GetKeyDown (KeyCode.Z))
 			Ladrar();
 
-		if((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && isGrounded){
+		if(Input.GetKeyDown(KeyCode.Space) && isGrounded){
 			
 			rb2d.AddForce (Vector2.up * jumpForce);
 			isGrounded = false;

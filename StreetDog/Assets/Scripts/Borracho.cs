@@ -18,7 +18,7 @@ public class Borracho : MonoBehaviour {
 		if (acceso == null)
 			return;
 
-		if (Input.GetKeyDown (KeyCode.Space))
+		if (Input.GetKeyDown (KeyCode.Z))
 			contador++;
 
 		if (contador >= cantLadridos){
