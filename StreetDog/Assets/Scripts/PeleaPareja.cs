@@ -18,16 +18,13 @@ public class PeleaPareja : MonoBehaviour {
 			{
 				GameObject _objeto = Instantiate (objects[Random.Range(0,objects.Length)], transform.position, transform.rotation);
 				_objeto.transform.SetParent(transform);
-				elapsed = 0;
+				elapsed = 0;	
 			}
 		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-
-		if (other.CompareTag("Player")) {
-
-			GameController.instance.peleaPareja = true;
-		}
+		if (other.CompareTag("Player")) 
+			GameController.instance.peleaPareja = true;	
 	}
 }

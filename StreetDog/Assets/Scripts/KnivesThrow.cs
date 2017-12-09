@@ -10,6 +10,8 @@ public class KnivesThrow : MonoBehaviour {
 	//altura al azar
 	public Vector2 randomHeight;
 	float elapsed;
+	public float intervaloDisparo;
+
 
 	void Awake () 
 	{
@@ -31,5 +33,10 @@ public class KnivesThrow : MonoBehaviour {
 		{
 			Destroy (gameObject);
 		}
+	}
+
+	void OnTriggerEnter2D(Collider2D other){
+		if (other.CompareTag("Player")) 
+			GameController.instance.peleaPareja = true;	
 	}
 }

@@ -6,6 +6,7 @@ public class ObjectThrow : MonoBehaviour {
 
 	private Rigidbody2D body;
 	public float speedx = 4;
+	public float porcentajeVelocidad;
 	public Vector2 randomHeight;
 
 	float elapsed;
@@ -32,6 +33,14 @@ public class ObjectThrow : MonoBehaviour {
 		if (elapsed >= 3) 
 		{
 			Destroy (gameObject);
+		}
+	}
+
+	void OnTriggerEnter2D(Collider2D obj)
+	{
+		if (obj.gameObject.tag == "Player")
+		{
+			PlayerMovement.instance.ActualizarSpeed(porcentajeVelocidad);
 		}
 	}
 }
