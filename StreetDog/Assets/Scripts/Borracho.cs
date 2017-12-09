@@ -6,6 +6,7 @@ public class Borracho : MonoBehaviour {
 
 	private Walkdog acceso;
 	public int contador;
+	public int cantLadridos;
 
 
 	void Start () {
@@ -20,7 +21,7 @@ public class Borracho : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Space))
 			contador++;
 
-		if (contador >= 10){
+		if (contador >= cantLadridos){
 			Destroy (gameObject);
 			acceso.miedo = false;
 
