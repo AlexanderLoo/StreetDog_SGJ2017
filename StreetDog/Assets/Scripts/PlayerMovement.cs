@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour {
 	bool onWater=false;
 	bool isGrounded;
 	bool jumping = false;
+	public bool pasadizo = false;
 
 	void Awake()
 	{
@@ -30,6 +31,7 @@ public class PlayerMovement : MonoBehaviour {
 	void Start()
 	{
 		miedo = false;
+		pasadizo = false;
 	}
 
 	void Update(){
@@ -58,7 +60,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	void FixedUpdate()
 	{
-		if (miedo)
+		if (miedo||pasadizo)
 		{
 			rb2d.velocity = Vector2.zero;
 			return;

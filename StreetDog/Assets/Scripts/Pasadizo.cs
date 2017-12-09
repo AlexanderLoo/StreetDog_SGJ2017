@@ -14,6 +14,7 @@ public class Pasadizo : MonoBehaviour {
 		if ((Input.GetKeyDown (KeyCode.W) || Input.GetKeyDown (KeyCode.UpArrow))&& accionable) {
 				playerAnim.SetTrigger ("ChangeLayer");
 				Invoke ("CambiarCapas", 1);
+				PlayerMovement.instance.pasadizo=true;
 			}
 	}
 	void OnTriggerEnter2D(Collider2D obj)
@@ -33,6 +34,7 @@ public class Pasadizo : MonoBehaviour {
 	}
 	void CambiarCapas()
 	{
+		PlayerMovement.instance.pasadizo=false; 
 		capaActual.SetActive(false);
 		capaSiguiente.SetActive(true);
 		
