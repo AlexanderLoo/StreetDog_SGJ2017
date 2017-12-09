@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
 	private SpriteRenderer sr;
-	private Rigidbody2D rb2d;
+	public Rigidbody2D rb2d;
 	private Animator anim;
 	public static PlayerMovement instance;
 
