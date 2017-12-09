@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class walkdog : MonoBehaviour {
 
+	private SpriteRenderer sr;
+	private Rigidbody2D rb2d;
+	public static walkdog instance;
 
 	public float speed;             
 	public Vector2 gameLimits;
-	private SpriteRenderer sr;
-	private Rigidbody2D rb2d;
-	private 
 	float movex;
 	bool onWater=false;
-	public static walkdog instance;
 
 	void Awake()
 	{
