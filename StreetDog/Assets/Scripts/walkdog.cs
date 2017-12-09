@@ -4,60 +4,58 @@ using UnityEngine;
 
 public class walkdog : MonoBehaviour {
 
+
 	public float speed;             
 
 	private Rigidbody2D rb2d;
-	public float movex;
+	float movex;
 	bool onWater=false;
+	public static walkdog instance;
 
-	void Start()
+	void Awake()
 	{
 		rb2d = GetComponent<Rigidbody2D> ();
+		instance = this;
+	}
+	void Start()
+	{
+
 	}
 
 	void FixedUpdate()
 	{
 		movex = 0;
-		if (onWater) 
+
+		if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey (KeyCode.A)) 
 		{
-			if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey (KeyCode.A)) 
+			if (onWater) 
 			{
 				movex = -speed + 1.75f;
 			}
-			if (Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.D))
+			else
+				movex = -speed;
+		}
+		if (Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.D))
+		{
+			if (onWater) 
 			{
 				movex = speed - 1.75f;
-			}
-		} 
-		else 
-		{
-			if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey (KeyCode.A)) 
-			{
-				movex = -speed;
-			}
-			if (Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.D))
+			} 
+			else 
 			{
 				movex = speed;
 			}
 		}
-		print (onWater);
+
+
+
+
 		rb2d.velocity = new Vector2 (movex,rb2d.velocity.y);
 	}
-	void OnTriggerEnter2D(Collider2D other)
+	public void setWater(bool agua)
 	{
-		
-		if (other.gameObject.tag == "agua") 
-		{
-			onWater = true;
+		onWater = agua;
+	}
 
-		}
-	
-	}
-	void OnTriggerExit2D(Collider2D other)
-	{
-		if (other.gameObject.tag == "agua")
-		{
-			onWater = false;
-		}
-	}
+
 }
