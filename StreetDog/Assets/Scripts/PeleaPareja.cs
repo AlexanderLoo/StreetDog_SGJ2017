@@ -16,7 +16,8 @@ public class PeleaPareja : MonoBehaviour {
 			elapsed += Time.deltaTime;
 			if (elapsed >= intervaloDisparo)
 			{
-				Instantiate (objects[Random.Range(0,objects.Length)], transform.position, transform.rotation);
+				GameObject _objeto = Instantiate (objects[Random.Range(0,objects.Length)], transform.position, transform.rotation);
+				_objeto.transform.SetParent(transform);
 				elapsed = 0;
 			}
 		}
