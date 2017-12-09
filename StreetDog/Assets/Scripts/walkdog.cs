@@ -7,7 +7,7 @@ public class walkdog : MonoBehaviour {
 	public float speed;             
 
 	private Rigidbody2D rb2d;
-	float movex;
+	public float movex;
 	bool onWater=false;
 
 	void Start()
