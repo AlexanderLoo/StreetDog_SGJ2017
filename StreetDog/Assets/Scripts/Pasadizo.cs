@@ -7,14 +7,28 @@ public class Pasadizo : MonoBehaviour {
 	public Animator playerAnim;
 	public GameObject capaActual;
 	public GameObject capaSiguiente;
-	void OnTriggerStay2D(Collider2D obj)
+	private bool accionable = false;
+
+	void Update()
 	{
-		if (obj.gameObject.tag == "Player")
-		{
-			if (Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.UpArrow)) {
+		if ((Input.GetKeyDown (KeyCode.W) || Input.GetKeyDown (KeyCode.UpArrow))&& accionable) {
 				playerAnim.SetTrigger ("ChangeLayer");
 				Invoke ("CambiarCapas", 1);
 			}
+	}
+	void OnTriggerEnter2D(Collider2D obj)
+	{
+		if (obj.gameObject.tag == "Player")
+		{
+			accionable=true;
+		}
+	}
+
+	void OnTriggerExit2D(Collider2D obj)
+	{
+		if (obj.gameObject.tag == "Player")
+		{
+			accionable=false;
 		}
 	}
 	void CambiarCapas()
