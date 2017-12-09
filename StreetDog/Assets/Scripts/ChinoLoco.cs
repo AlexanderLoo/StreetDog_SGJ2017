@@ -14,7 +14,8 @@ public class ChinoLoco : MonoBehaviour {
 			elapsed += Time.deltaTime;
 			if (elapsed >= intervaloDisparo)
 			{
-				Instantiate (cuchillo, transform.position, transform.rotation);
+				GameObject _objeto = Instantiate (cuchillo, transform.position, transform.rotation);
+				_objeto.transform.SetParent(transform);
 				elapsed = 0;
 			}
 		}
