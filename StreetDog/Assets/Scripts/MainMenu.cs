@@ -30,5 +30,9 @@ public class MainMenu : MonoBehaviour {
 		TransitionKit.instance.transitionWithDelegate( wind );
 
 	}
+	public void onClickExit()
+	{
+		Application.Quit ();
+	}
 
 }
