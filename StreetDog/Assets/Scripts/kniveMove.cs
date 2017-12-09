@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class kniveMove : MonoBehaviour {
 
-	// Use this for initialization
 	private Rigidbody2D body;
+
 	public float speedx;
 	public float speedy;
 	float elapsed;
+
 	void Awake () 
 	{
 		body = GetComponent<Rigidbody2D> ();

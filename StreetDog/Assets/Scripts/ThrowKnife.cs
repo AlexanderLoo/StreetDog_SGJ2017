@@ -4,16 +4,10 @@ using UnityEngine;
 
 public class ThrowKnife : MonoBehaviour {
 
-	// Use this for initialization
 	public GameObject cuchillo;
 	float elapsed=0;
 	public float intervaloDisparo;
-	void Start () 
-	{
-		
-	}
-	
-	// Update is called once per frame
+
 	void Update () 
 	{
 		elapsed += Time.deltaTime;
