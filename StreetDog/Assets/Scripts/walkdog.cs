@@ -11,8 +11,9 @@ public class Walkdog : MonoBehaviour {
 	public GameObject ladrido;//Esto solo será un sonido. no creara un GameObject
 	public Transform posBoca;
 
-	public float speed;             
 	public Vector2 gameLimits;
+	public float speed;    
+	public bool miedo = false;         
 	float movex;
 	bool onWater=false;
 
@@ -21,6 +22,12 @@ public class Walkdog : MonoBehaviour {
 		sr = GetComponent<SpriteRenderer> ();
 		rb2d = GetComponent<Rigidbody2D> ();
 		instance = this;
+
+	}
+
+	void Start()
+	{
+		miedo = false;
 	}
 
 	void Update(){
@@ -36,6 +43,12 @@ public class Walkdog : MonoBehaviour {
 
 	void FixedUpdate()
 	{
+		if (miedo)
+		{
+			rb2d.velocity = Vector2.zero;
+			return;
+		}
+
 		movex = 0;
 
 		//Si nos movemos a la izquierda flipeamos el sprite para que mire hacia la izquierda
@@ -68,7 +81,6 @@ public class Walkdog : MonoBehaviour {
 				movex = speed;
 			}
 
-
 			posBoca.localPosition = new Vector3 (2.75f,0.9f,0f);
 			
 		}
@@ -91,5 +103,10 @@ public class Walkdog : MonoBehaviour {
 	public void Ladrar ()
 	{
 		Destroy (Instantiate(ladrido,posBoca.position,transform.rotation),1f);
+	}
+
+	public void Miedo (bool _valor)
+	{
+		miedo = _valor;
 	}
 }
