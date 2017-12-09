@@ -22,6 +22,8 @@ public class PlayerMovement : MonoBehaviour {
 	bool jumping = false;
 	public bool pasadizo = false;
 
+	public float tiempo;
+
 	void Awake()
 	{
 		sr = GetComponent<SpriteRenderer> ();
@@ -37,7 +39,6 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void Update(){
-
 		//Establecemos los límites del juego
 		Vector3 newPos = transform.position;
 		newPos.x = Mathf.Clamp (transform.position.x, gameLimits.x, gameLimits.y);
