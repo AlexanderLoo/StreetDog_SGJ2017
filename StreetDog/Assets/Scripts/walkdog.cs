@@ -6,7 +6,7 @@ public class walkdog : MonoBehaviour {
 
 
 	public float speed;             
-
+	public Vector2 gameLimits;
 	private SpriteRenderer sr;
 	private Rigidbody2D rb2d;
 	private 
@@ -19,6 +19,14 @@ public class walkdog : MonoBehaviour {
 		sr = GetComponent<SpriteRenderer> ();
 		rb2d = GetComponent<Rigidbody2D> ();
 		instance = this;
+	}
+
+	void Update(){
+
+		//Establecemos los límites del juego
+		Vector3 newPos = transform.position;
+		newPos.x = Mathf.Clamp (transform.position.x, gameLimits.x, gameLimits.y);
+		transform.position = newPos;
 	}
 
 	void FixedUpdate()
@@ -52,16 +60,11 @@ public class walkdog : MonoBehaviour {
 				movex = speed;
 			}
 		}
-
-
-
-
 		rb2d.velocity = new Vector2 (movex,rb2d.velocity.y);
 	}
-	public void setWater(bool agua)
+
+	public void SetWater(bool agua)
 	{
 		onWater = agua;
 	}
-
-
 }
