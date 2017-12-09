@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour {
 	bool isGrounded;
 	bool jumping = false;
 	public bool pasadizo = false;
+	int estadomovimiento=1;
 
 	void Awake()
 	{
@@ -62,9 +63,17 @@ public class PlayerMovement : MonoBehaviour {
 			isGrounded = true;
 		}
 	}
+	public int GetEstado()
+	{
+		return estadomovimiento;
+	}
 
 	void FixedUpdate()
 	{
+		if (Input.GetKeyUp (KeyCode.LeftArrow) || Input.GetKeyUp (KeyCode.A) ||Input.GetKeyUp (KeyCode.RightArrow) || Input.GetKeyUp (KeyCode.D) ) 
+		{
+			estadomovimiento = 1;
+		}
 		if (miedo||pasadizo)
 		{
 			rb2d.velocity = Vector2.zero;
@@ -87,7 +96,7 @@ public class PlayerMovement : MonoBehaviour {
 			else
 				movex = -speed;
 
-
+			estadomovimiento = 2;
 			posBoca.localPosition = new Vector3 (-2.75f,0.9f,0f);
 		}
 		//Misma lógica que la anterior pero hacia el otro lado
@@ -103,6 +112,7 @@ public class PlayerMovement : MonoBehaviour {
 				movex = speed;
 			}
 
+			estadomovimiento = 3;
 			posBoca.localPosition = new Vector3 (2.75f,0.9f,0f);
 
 		}
@@ -110,6 +120,10 @@ public class PlayerMovement : MonoBehaviour {
 
 		if (rb2d.velocity == Vector2.zero)
 			posBoca.localPosition = new Vector3 (1.25f,0.9f,0f);
+		if (Input.GetKeyUp (KeyCode.LeftArrow) || Input.GetKeyUp (KeyCode.A) ||Input.GetKeyUp (KeyCode.RightArrow) || Input.GetKeyUp (KeyCode.D) ) 
+		{
+			estadomovimiento = 1;
+		}
 	}
 
 	public void SetWater(bool agua)
