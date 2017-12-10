@@ -17,11 +17,8 @@ public class Borracho : MonoBehaviour {
 	void Update () {
 		if (acceso == null)
 			return;
-
-		if (Input.GetKeyDown (KeyCode.E)||Input.GetKeyDown (KeyCode.G)||Input.GetKeyDown (KeyCode.B))
-			contador++;
-
-		if (contador >= cantLadridos){
+	
+		if (acceso.borracho >= cantLadridos){
 			Destroy (gameObject);
 			acceso.miedo = false;
 
@@ -33,6 +30,7 @@ public class Borracho : MonoBehaviour {
 		if (obj.gameObject.tag == "Player")
 		{
 			acceso = PlayerMovement.instance;
+			acceso.borracho = 0;
 			acceso.Miedo (true);
 			
 		}
