@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour {
 	public static PlayerMovement instance;
 
 	public GameObject ladrido;//Esto solo será un sonido. no creara un GameObject
+	public GameObject llanto;
 	public Transform posBoca;
 
 	public Vector2 gameLimits;
@@ -146,7 +147,8 @@ public class PlayerMovement : MonoBehaviour {
 
 		if (_valor >=1)
 			return;
-			
+		
+		Llanto();
 		isHurt = true;
 		Invoke ("IsNotHurt", 2);
 	}
@@ -161,10 +163,14 @@ public class PlayerMovement : MonoBehaviour {
 		
 			
 	}
+	public void Llanto ()
+	{	
+		Destroy ( Instantiate(llanto,posBoca.position,transform.rotation),0.5f);
+	}
 
 	IEnumerator RepetirLadrido (){
 		yield return new WaitForSeconds (0.2f);
-		Destroy ( Instantiate(ladrido,posBoca.position,transform.rotation),0.5f);
+		Destroy ( Instantiate(ladrido,posBoca.position,transform.rotation),2f);
 		borracho++;
 		puedeLadrar = true;
 
