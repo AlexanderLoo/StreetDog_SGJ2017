@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour {
 	int estadomovimiento=1;
 
 	public float tiempo;
+	public bool isHurt;
+	private float targetAlpha;
 
 	void Awake()
 	{
@@ -55,7 +57,7 @@ public class PlayerMovement : MonoBehaviour {
 		}
 		anim.SetFloat ("Walk", Mathf.Abs(rb2d.velocity.x));
 		anim.SetBool ("isGrounded", isGrounded);
-
+		ManageBlinking ();
 	}
 	//Detectamos si aterrizó en el piso
 	void OnCollisionEnter2D(Collision2D col){
@@ -135,6 +137,8 @@ public class PlayerMovement : MonoBehaviour {
 	public void ActualizarSpeed (float _valor)
 	{
 		speed *= _valor;
+		isHurt = true;
+		Invoke ("IsNotHurt", 2);
 	}
 
 	public void Ladrar ()
@@ -145,5 +149,28 @@ public class PlayerMovement : MonoBehaviour {
 	public void Miedo (bool _valor)
 	{
 		miedo = _valor;
+	}
+	//Función que sirve como feedback al colisionar con un hazard
+	void ManageBlinking(){
+
+		if (isHurt) {
+			Color newColor = sr.color;
+			//Mathf.Lerp sirve para recorrer de forma gradual
+			//Mathf.Lerp(origen,destino,velocidad)
+			newColor.a = Mathf.Lerp (newColor.a, targetAlpha, Time.deltaTime * 20);
+			if (newColor.a < 0.05f) {
+				targetAlpha = 1;
+			}
+			if (newColor.a > 0.95f) {
+				targetAlpha = 0;
+			}
+			sr.color = newColor;
+		} else {
+			sr.color = Color.white;
+		}	
+	}
+	//Función para volver al estado no lastimado
+	void IsNotHurt(){
+		isHurt = false;
 	}
 }

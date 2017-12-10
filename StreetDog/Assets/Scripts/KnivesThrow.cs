@@ -36,7 +36,9 @@ public class KnivesThrow : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		if (other.CompareTag("Player")) 
+		if (other.CompareTag("Player")) {
 			GameController.instance.peleaPareja = true;	
+			PlayerMovement.instance.ActualizarSpeed (0.91f);
+		}
 	}
 }
