@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour {
 	bool isGrounded;
 	bool jumping = false;
 	public bool pasadizo = false;
+	private bool puedeLadrar;
 	int estadomovimiento=1;
 
 	public float tiempo;
@@ -39,6 +40,7 @@ public class PlayerMovement : MonoBehaviour {
 	{
 		miedo = false;
 		pasadizo = false;
+		puedeLadrar = true;
 	}
 
 	void Update(){
@@ -149,8 +151,21 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	public void Ladrar ()
-	{
-		Destroy (Instantiate(ladrido,posBoca.position,transform.rotation),1f);
+	{	
+		if (!puedeLadrar)
+			return;
+
+		Destroy ( Instantiate(ladrido,posBoca.position,transform.rotation),0.5f);
+		puedeLadrar = false;
+		StartCoroutine(RepetirLadrido());
+		
+			
+	}
+
+	IEnumerator RepetirLadrido (){
+		yield return new WaitForSeconds (0.2f);
+		puedeLadrar = true;
+
 	}
 
 	public void Miedo (bool _valor)
