@@ -16,7 +16,7 @@ public class CreditsScript : MonoBehaviour
 	void Update () 
 	{
 		pos = transform.position;
-		pos.y = pos.y + 0.03f;
+		pos.y = pos.y + 0.015f;
 		transform.position = pos;
 	}
 }
