@@ -137,6 +137,10 @@ public class PlayerMovement : MonoBehaviour {
 	public void ActualizarSpeed (float _valor)
 	{
 		speed *= _valor;
+
+		if (speed <= 1 )
+			speed = 1;
+
 		isHurt = true;
 		Invoke ("IsNotHurt", 2);
 	}
