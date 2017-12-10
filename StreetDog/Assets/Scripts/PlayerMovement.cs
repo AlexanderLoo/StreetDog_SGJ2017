@@ -141,6 +141,9 @@ public class PlayerMovement : MonoBehaviour {
 		if (speed <= 1 )
 			speed = 1;
 
+		if (_valor >=1)
+			return;
+			
 		isHurt = true;
 		Invoke ("IsNotHurt", 2);
 	}
