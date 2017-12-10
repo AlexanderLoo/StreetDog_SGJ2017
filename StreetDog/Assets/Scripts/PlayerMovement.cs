@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour {
 			Ladrar();
 
 		if(Input.GetKeyDown(KeyCode.Space) && isGrounded){
-
+			anim.SetTrigger ("Jump");
 			rb2d.AddForce (Vector2.up * jumpForce);
 			isGrounded = false;
 		}
