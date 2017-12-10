@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour {
 
 	public static GameController instance;
 	//Los siguientes booleanos verifican si se encontró al enemigo determinado	
+	public Transform player;
 	public bool chinoLoco, peleaPareja;
 	public Image[] motherHeartSprite;
 	public Image[] childHearthSprite;
