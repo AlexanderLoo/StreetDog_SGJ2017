@@ -21,7 +21,7 @@ public class CreditsFinalFinal : MonoBehaviour {
 		if (other.gameObject.tag == "Player") 
 		{
 			var wind = new FadeTransition () {
-				nextScene = 3,
+				nextScene = 1,
 				duration = 3.4f,
 
 			};
