@@ -6,8 +6,10 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour {
 
 	public static GameController instance;
+	float time2=0;
 	//Los siguientes booleanos verifican si se encontró al enemigo determinado	
 	public Transform player;
+	bool apagado=false;
 	public bool chinoLoco, peleaPareja;
 	public Image[] motherHeartSprite;
 	public Image[] childHearthSprite;
@@ -46,7 +48,22 @@ public class GameController : MonoBehaviour {
 		ChildHeart ();
 		ShowCountDown ();
 		ManageBlinking ();
+		if (apagado) 
+		{
+			time2 += Time.deltaTime;
+		}
 
+		if (time2 >= 1) 
+		{
+			time2 = 0;
+			countDownText.gameObject.SetActive (true);
+			Invoke ("cambio", 0.2f);
+
+		}
+	}
+	public void cambio()
+	{
+		apagado = false;
 	}
 	//Función que actualiza el corazón de la madre
 	void MotherHeart(){
@@ -75,6 +92,8 @@ public class GameController : MonoBehaviour {
 			}
 		}
 	}
+
+
 	//Función que muestra el contador del corazón del cachorro
 	void ShowCountDown(){
 		if (countDown<=0){
@@ -85,6 +104,13 @@ public class GameController : MonoBehaviour {
 		int minutos;
 		int segundos;
 		countDown -= Time.deltaTime;
+		if (countDown <= 10 && !apagado)
+		{
+			countDownText.gameObject.SetActive (false);
+			apagado = true;
+
+
+		}
 		if (countDown > 60) {
 			minutos = Mathf.RoundToInt (countDown) / 60;
 			segundos = Mathf.RoundToInt(countDown) - 60;
