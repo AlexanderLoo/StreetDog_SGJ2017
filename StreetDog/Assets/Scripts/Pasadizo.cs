@@ -11,10 +11,11 @@ public class Pasadizo : MonoBehaviour {
 
 	void Update()
 	{
-		if ((Input.GetKeyDown (KeyCode.W) || Input.GetKeyDown (KeyCode.UpArrow))&& accionable) {
+		if ((Input.GetKeyDown (KeyCode.W) || Input.GetKeyDown (KeyCode.UpArrow))&& accionable && !PlayerMovement.instance.pasadizo) {
 				playerAnim.SetTrigger ("ChangeLayer");
 				Invoke ("CambiarCapas", 1.3f);
 				PlayerMovement.instance.pasadizo=true;
+				PlayerMovement.instance.ActualizarSpeed(1.2f);
 			}
 	}
 	void OnTriggerEnter2D(Collider2D obj)
