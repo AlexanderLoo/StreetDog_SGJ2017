@@ -34,5 +34,14 @@ public class MainMenu : MonoBehaviour {
 	{
 		Application.Quit ();
 	}
+	public void onClickCredits()
+	{
+		var anima = new  RippleTransition () 
+		{
+			nextScene = 2,
+			duration = 1.4f,
+		};
+		TransitionKit.instance.transitionWithDelegate(anima);
+	}
 
 }
