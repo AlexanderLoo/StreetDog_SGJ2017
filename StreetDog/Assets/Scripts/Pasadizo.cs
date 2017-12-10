@@ -15,7 +15,7 @@ public class Pasadizo : MonoBehaviour {
 				playerAnim.SetTrigger ("ChangeLayer");
 				Invoke ("CambiarCapas", 1.3f);
 				PlayerMovement.instance.pasadizo=true;
-				PlayerMovement.instance.ActualizarSpeed(1.2f);
+				PlayerMovement.instance.ActualizarSpeed(1.1f);
 			}
 	}
 	void OnTriggerEnter2D(Collider2D obj)
