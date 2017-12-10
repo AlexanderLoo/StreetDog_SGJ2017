@@ -18,7 +18,7 @@ public class PerroFinalS : MonoBehaviour {
 	void Update () 
 	{
 		Invoke ("PlayUlti", 1.3f);
-		Invoke ("Creditos", 5f);
+		Invoke ("Creditos", 14f);
 	}
 	public void PlayUlti()
 	{
