@@ -23,6 +23,7 @@ public class GameController : MonoBehaviour {
 	//Indices actuales de las listas 
 	private int motherIndex = 0;
 	private int childrenIndex = 0;
+	float targetAlpha;
 
 	void Awake(){
 
@@ -44,6 +45,7 @@ public class GameController : MonoBehaviour {
 		MotherHeart ();
 		ChildHeart ();
 		ShowCountDown ();
+		ManageBlinking ();
 
 	}
 	//Función que actualiza el corazón de la madre
@@ -91,4 +93,24 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
+	void ManageBlinking(){
+
+		foreach (Image sprite in motherHeartSprite) {
+			
+		if (PlayerMovement.instance.isHurt) {
+				Color newColor = sprite.color;
+				newColor.a = Mathf.Lerp (newColor.a, targetAlpha, Time.deltaTime * 20);
+
+				if (newColor.a < 0.05f) {
+					targetAlpha = 1;
+				}
+				if (newColor.a > 0.95f) {
+					targetAlpha = 0;
+				}
+				sprite.color = newColor;
+			}else {
+				sprite.color = Color.white;
+			}
+		}	
+	}
 }
