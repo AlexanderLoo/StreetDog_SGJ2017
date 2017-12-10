@@ -61,10 +61,13 @@ public class GameController : MonoBehaviour {
 	//Función que actualiza el corazón del hijo
 	void ChildHeart(){
 
-		if (childrenIndex <= childHearthSprite.Length) {
+		if (childrenIndex < childHearthSprite.Length-1) {
 			if (Time.time > checkTime) {
 				childHearthSprite [childrenIndex].enabled = false;
+				
 				childHearthSprite [childrenIndex+1].enabled = true;
+				
+					
 				childrenIndex += 1;
 				checkTime += 20;
 			}
@@ -72,6 +75,10 @@ public class GameController : MonoBehaviour {
 	}
 	//Función que muestra el contador del corazón del cachorro
 	void ShowCountDown(){
+		if (countDown<=0){
+			countDown=0;
+			return;
+		}
 
 		int minutos;
 		int segundos;
