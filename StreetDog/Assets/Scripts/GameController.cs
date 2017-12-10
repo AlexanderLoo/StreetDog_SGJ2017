@@ -11,7 +11,13 @@ public class GameController : MonoBehaviour {
 	public bool chinoLoco, peleaPareja;
 	public Image[] motherHeartSprite;
 	public Image[] childHearthSprite;
+	//Variable que muestra el tiempo antes que el cachorro muera
+	public Text countDownText;
+	private float countDown, finalCountDown;
+	//booleano que muestra el estado final del juego
+	public bool finish;
 
+	//Valores a llegar para cambiar el estado del corazón
 	public float checkTime = 20;
 	private float checkPoint = 100;
 	//Indices actuales de las listas 
@@ -28,32 +34,49 @@ public class GameController : MonoBehaviour {
 			Destroy (gameObject);
 		}
 	}
+	void Start(){
 
+		finalCountDown = checkTime * childHearthSprite.Length;
+		countDown = finalCountDown;
+	}
 	void Update(){
 
+		MotherHeart ();
+		ChildHeart ();
+		ShowCountDown ();
 
 	}
 	//Función que actualiza el corazón de la madre
 	void MotherHeart(){
-
-		if (transform.position.x > checkPoint) {
-			motherHeartSprite [motherIndex].enabled = false;
-			motherIndex += 1;
-			motherHeartSprite [motherIndex].enabled = true;
-			checkPoint += 100;
+		if (motherIndex <= motherHeartSprite.Length) {
+			if (player.position.x > checkPoint) {
+				motherHeartSprite [motherIndex].enabled = false;
+				motherHeartSprite [motherIndex+1].enabled = true;
+				motherIndex += 1;
+				checkPoint += 100;
+			}
 		}
+
 	}
 	//Función que actualiza el corazón del hijo
 	void ChildHeart(){
 
-		if (Time.time > checkTime) {
-			childHearthSprite [childrenIndex].enabled = false;
-			childrenIndex += 1;
-			childHearthSprite [childrenIndex].enabled = true;
-			checkTime = 0;
+		if (childrenIndex <= childHearthSprite.Length) {
+			if (Time.time > checkTime) {
+				childHearthSprite [childrenIndex].enabled = false;
+				childHearthSprite [childrenIndex+1].enabled = true;
+				childrenIndex += 1;
+				checkTime += 20;
+			}
 		}
 	}
+	//Función que muestra el contador del corazón del cachorro
+	void ShowCountDown(){
 
+		countDown -= Time.deltaTime;
+		countDownText.text = countDown.ToString ();
+		Mathf.RoundToInt (Time.time);
 
+	}
 
 }
