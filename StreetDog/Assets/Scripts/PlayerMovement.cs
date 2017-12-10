@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour {
 		newPos.x = Mathf.Clamp (transform.position.x, gameLimits.x, gameLimits.y);
 		transform.position = newPos;
 
-		if (Input.GetKeyDown (KeyCode.Z))
+		if (Input.GetKeyDown (KeyCode.E)||Input.GetKeyDown (KeyCode.G)||Input.GetKeyDown (KeyCode.B))
 			Ladrar();
 
 		if(Input.GetKeyDown(KeyCode.Space) && isGrounded){
