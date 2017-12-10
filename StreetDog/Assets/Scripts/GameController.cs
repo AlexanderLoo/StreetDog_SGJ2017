@@ -73,10 +73,22 @@ public class GameController : MonoBehaviour {
 	//Función que muestra el contador del corazón del cachorro
 	void ShowCountDown(){
 
+		int minutos;
+		int segundos;
 		countDown -= Time.deltaTime;
-		countDownText.text = countDown.ToString ();
-		Mathf.RoundToInt (Time.time);
+		if (countDown > 60) {
+			minutos = Mathf.RoundToInt (countDown) / 60;
+			segundos = Mathf.RoundToInt(countDown) - 60;
+		} else {
+			minutos = 0;
+			segundos = Mathf.RoundToInt(countDown);
+		}
+		if (segundos < 10) {
 
+			countDownText.text = "0" + minutos.ToString () + ":" + "0" + segundos.ToString ();
+		} else {
+			countDownText.text = "0" + minutos.ToString () + ":" + segundos.ToString ();
+		}
 	}
 
 }
