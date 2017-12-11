@@ -26,11 +26,12 @@ public class PerroFinalS : MonoBehaviour {
 	}
 	public void Creditos()
 	{
-		var wind = new FadeTransition () {
+		/*var wind = new FadeTransition () {
 			nextScene = 2,
 			duration = 3.2f,
 
 		};
-		TransitionKit.instance.transitionWithDelegate (wind);
+		TransitionKit.instance.transitionWithDelegate (wind);*/
+		SceneManager.LoadScene(2);
 	}
 }

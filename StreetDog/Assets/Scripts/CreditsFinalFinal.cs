@@ -20,12 +20,13 @@ public class CreditsFinalFinal : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "Player") 
 		{
-			var wind = new FadeTransition () {
+			/*var wind = new FadeTransition () {
 				nextScene = 3,
-				duration = 3.4f,
+				duration = 1f,
 
 			};
-			TransitionKit.instance.transitionWithDelegate (wind);
+			TransitionKit.instance.transitionWithDelegate (wind);*/
+			SceneManager.LoadScene(3);
 		}
 	}
 }

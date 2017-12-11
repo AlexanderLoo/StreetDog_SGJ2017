@@ -21,13 +21,14 @@ public class MainMenu : MonoBehaviour {
 	{
 		Debug.Log ("go to play");
 		//SceneManager.LoadScene ("level1");
-		var wind = new PixelateTransition()
+		/*var wind = new PixelateTransition()
 		{
 			nextScene = 1,
 			duration = 1.4f,
 
 		};
-		TransitionKit.instance.transitionWithDelegate( wind );
+		TransitionKit.instance.transitionWithDelegate( wind );*/
+		SceneManager.LoadScene(1);
 
 	}
 	public void onClickExit()
@@ -36,12 +37,13 @@ public class MainMenu : MonoBehaviour {
 	}
 	public void onClickCredits()
 	{
-		var anima = new  RippleTransition () 
+		/*var anima = new  RippleTransition () 
 		{
 			nextScene = 2,
 			duration = 1.4f,
 		};
-		TransitionKit.instance.transitionWithDelegate(anima);
+		TransitionKit.instance.transitionWithDelegate(anima);*/
+		SceneManager.LoadScene(2);
 	}
 
 }
