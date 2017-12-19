@@ -29,7 +29,6 @@ public class MainMenu : MonoBehaviour {
 		};
 		TransitionKit.instance.transitionWithDelegate( wind );*/
 		SceneManager.LoadScene(1);
-
 	}
 	public void onClickExit()
 	{
