@@ -10,9 +10,7 @@ public class Charco : MonoBehaviour {
 		if (other.gameObject.tag == "Player") 
 		{
 			PlayerMovement.instance.SetWater (true);
-
 		}
-
 	}
 	void OnTriggerExit2D(Collider2D other)
 	{

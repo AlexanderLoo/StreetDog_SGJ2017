@@ -24,8 +24,7 @@ public class KnivesThrow : MonoBehaviour {
 		body.AddTorque (speedx*100);
 		body.velocity = new Vector2 (-speedx, speedy*3);
 	}
-	
-	// Update is called once per frame
+
 	void Update () 
 	{
 		elapsed += Time.deltaTime;

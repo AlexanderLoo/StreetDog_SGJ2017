@@ -21,7 +21,7 @@ public class GameController : MonoBehaviour {
 
 	//Valores a llegar para cambiar el estado del corazón
 	public float checkTime = 20;
-	private float checkPoint = 100;
+	private float checkPoint = 50;
 	//Indices actuales de las listas 
 	private int motherIndex = 0;
 	private int childrenIndex = 0;
@@ -72,7 +72,7 @@ public class GameController : MonoBehaviour {
 				motherHeartSprite [motherIndex].enabled = false;
 				motherHeartSprite [motherIndex+1].enabled = true;
 				motherIndex += 1;
-				checkPoint += 100;
+				checkPoint += 75;
 			}
 		}
 
@@ -83,10 +83,7 @@ public class GameController : MonoBehaviour {
 		if (childrenIndex < childHearthSprite.Length-1) {
 			if (Time.time > checkTime) {
 				childHearthSprite [childrenIndex].enabled = false;
-				
 				childHearthSprite [childrenIndex+1].enabled = true;
-				
-					
 				childrenIndex += 1;
 				checkTime += 20;
 			}
@@ -108,8 +105,6 @@ public class GameController : MonoBehaviour {
 		{
 			countDownText.gameObject.SetActive (false);
 			apagado = true;
-
-
 		}
 		if (countDown > 60) {
 			minutos = Mathf.RoundToInt (countDown) / 60;

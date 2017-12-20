@@ -8,13 +8,6 @@ public class ParallaxBamba : MonoBehaviour
 	public float speed = 0.5f;
 	int estado;
 
-	// Use this for initialization
-	void Start () 
-	{
-
-	}
-
-	// Update is called once per frame
 	void Update () 
 	{
 		

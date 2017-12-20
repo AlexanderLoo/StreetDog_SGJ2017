@@ -8,15 +8,6 @@ using Prime31.TransitionKit;
 
 public class MainMenu : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 	public void OnClickPlay()
 	{
 		Debug.Log ("go to play");

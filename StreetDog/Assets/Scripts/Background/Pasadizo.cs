@@ -38,6 +38,5 @@ public class Pasadizo : MonoBehaviour {
 		PlayerMovement.instance.pasadizo=false; 
 		capaActual.SetActive(false);
 		capaSiguiente.SetActive(true);
-		
 	}
 }

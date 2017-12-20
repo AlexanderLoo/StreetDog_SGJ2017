@@ -8,12 +8,6 @@ public class Borracho : MonoBehaviour {
 	public int contador;
 	public int cantLadridos;
 
-
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
 	void Update () {
 		if (acceso == null)
 			return;
@@ -21,7 +15,6 @@ public class Borracho : MonoBehaviour {
 		if (acceso.borracho >= cantLadridos){
 			Destroy (gameObject);
 			acceso.miedo = false;
-
 		}
 	}
 
@@ -32,7 +25,6 @@ public class Borracho : MonoBehaviour {
 			acceso = PlayerMovement.instance;
 			acceso.borracho = 0;
 			acceso.Miedo (true);
-			
 		}
 	}
 }

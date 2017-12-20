@@ -21,7 +21,6 @@ public class ObjectThrow : MonoBehaviour {
 		float speedy = Random.Range (randomHeight.x, randomHeight.y);
 		body.AddTorque (speedx*100);
 		//variable random para definir que dirección va ir derecha o izquierda
-
 		int randomDir = Random.Range(-1,2);
 		body.velocity = new Vector2 (speedx * randomDir, speedy*3);
 	}

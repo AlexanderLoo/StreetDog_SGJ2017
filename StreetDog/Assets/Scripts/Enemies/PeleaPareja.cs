@@ -6,7 +6,6 @@ public class PeleaPareja : MonoBehaviour {
 
 	//Lista pública de los posibles objetos que se pueden lanzar
 	public GameObject[] objects;
-
 	float elapsed=0;
 	public float intervaloDisparo;
 
